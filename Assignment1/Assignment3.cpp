@@ -4,8 +4,9 @@ void initStudent();
 void printStudentOnConsole();
 void acceptStudentFromConsole();*/
 
-#include<iostream>
+ #include<iostream>
 using namespace std;
+#include<stdio.h>
 
 class student{
     int rollNo;
