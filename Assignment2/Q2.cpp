@@ -27,7 +27,7 @@ class tollbooth{
     void payingcar(){
         this->totalCount++;
         this->payCarCount++;
-        this->cashTotal += 0.50;
+        this->cashTotal += 50;
     }
     void nopaycar(){
         this->totalCount++;
@@ -43,7 +43,7 @@ class tollbooth{
     cout << "Total number of cars: " << this->totalCount << endl;
     cout << "Total amount of money collected: " << this->cashTotal << endl;
     cout << "Number of cars paying: " << this->payCarCount << endl;
-    cout << "Number of not paying cars : " <<this->totalCount-this->payCarCount << endl;
+    cout << "Number of not paying cars : " <<this->totalCount - this->payCarCount << endl;
     }
 
 };

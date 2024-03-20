@@ -12,7 +12,7 @@ using namespace std;
 class Box{
     private:
      float length, width, height;
-
+ 
     public:
      Box():Box(0,0,0){
         cout<<" parameterless constructor"<<endl;
@@ -57,8 +57,9 @@ int main(){
                 cin>>width;
                 cout<<"Enter Height: ";
                 cin>>height;
+                
 
-             Box box = Box(length,width,height);
+              Box box(length,width,height);
                cout<<"Volume ::- "<<box.volume()<<endl;
                
             };
