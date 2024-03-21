@@ -26,7 +26,7 @@ class Bank{
     void deposit(int accid, double amount){
          if(this->accountID==accid){
             this->balance += amount;
-            cout << "Balance is ::  " << this->balance << endl;
+            cout << "Name :: "<<this->fullName<<"Balance is ::  " << this->balance << endl;
          }
          else{
             cout<<"Account is not existing!!!"<<endl;
@@ -53,7 +53,7 @@ class Bank{
         cout << "Balance :: " << this->balance << endl;
     }
 
-    void tranferForOneToAnother(Bank b2, double amount){
+    void tranferForOneToAnother(Bank &b2, double amount){
         if(this->getAccountID() != b2.getAccountID()){
             if(this->getBalance()>amount){
                 this->setBalance(this->getBalance()-amount);
@@ -86,18 +86,24 @@ class Bank{
 };
 
 int main(){
-       Bank acc1(1001,"Sham Girhe",5000);
-       Bank acc2(1002,"Pranav Shinde",10000);
+    //   Bank *acc1 = new Bank (1001,"Sham Girhe",5000);
+    //   Bank *acc2 = new Bank(1002,"Pranav Shinde",10000);
+
+         Bank acc1(1001,"Sham Girhe",5000);
+         Bank acc2(1002,"Pranav Shinde",10000);
 
        acc1.AccountDetails();
        acc2.AccountDetails();
 
        acc1.deposit(1001,4000);
-       acc2.tranferForOneToAnother(acc1,4000);
+       acc2.tranferForOneToAnother(acc1,4000);//passed by reference it corrects
 
        acc1.AccountDetails();
        acc2.AccountDetails();
 
+    //delete acc1,acc2;
+    //acc1= null;
+    //acc2 = null;
         
 
     return 0;
