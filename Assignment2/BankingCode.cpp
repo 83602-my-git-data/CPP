@@ -9,16 +9,15 @@ create the object and then display the below menu
 4. check balance
 */
 
+
 class Bank{
     int const accountID;
     string fullName;
     double balance;
+    static int generatedAccountID;
 
     public:
-    Bank():Bank(101,"",0){
-
-    }
-    Bank(int accid, string fullName, double balance) : accountID(accid){
+    Bank(string fullName, double balance) : accountID(++generatedAccountID){
         this->fullName = fullName;
         this->balance = balance;
     }
@@ -85,12 +84,15 @@ class Bank{
     }
 };
 
+int Bank::generatedAccountID =1000;
+
 int main(){
     //   Bank *acc1 = new Bank (1001,"Sham Girhe",5000);
     //   Bank *acc2 = new Bank(1002,"Pranav Shinde",10000);
 
-         Bank acc1(1001,"Sham Girhe",5000);
-         Bank acc2(1002,"Pranav Shinde",10000);
+         Bank acc1("Sham Girhe", 5000);
+
+         Bank acc2("Pranav Shinde", 10000);
 
        acc1.AccountDetails();
        acc2.AccountDetails();
