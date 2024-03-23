@@ -1,11 +1,12 @@
 #include "Stack.h"
 int main(){
     int choice =0;
-    int size;
+    int size=5;
     int value =0;
      Stack *stack = NULL;
      do
     {
+    
         cout << "0. EXIT" << endl;
         cout << "1. Enter the Size of Stack." << endl;
         cout << "2. Enter the value in stack." << endl;

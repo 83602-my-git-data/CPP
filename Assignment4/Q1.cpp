@@ -14,6 +14,7 @@ Provide member functions like push(), pop(), peek(), isEmpty(), isFull(), and pr
 
   Stack::~Stack(){
         delete []stack;
+        stack=NULL;
       }
      void Stack::print(){
         if(!isEmpty()){
@@ -42,7 +43,10 @@ Provide member functions like push(), pop(), peek(), isEmpty(), isFull(), and pr
    {
     if(isEmpty()){
         cout<<"Stack is empty"<<endl;
-    }  int val = stack[top];
+        return -1;
+    } 
+    
+     int val = stack[top];
         top--;
         return val;
    }
