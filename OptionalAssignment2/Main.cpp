@@ -1,20 +1,20 @@
 #include "StudentFuctions.h"
 
 int main(){
-    StudentFunctions *std;
+    StudentFunctions *std = new StudentFunctions();
     string name;
     string gender;
     int size;
     int choice=0; 
      do
-    {
+    {   cout<<endl;
         cout << "0. EXIT" << endl;
         cout << "1. Size Of Student in Class." << endl;
         cout << "2. Add Students." << endl;
         cout << "3. Display Student." << endl;
         cout << "4. Search By RollNo." << endl;
         cout<<  "5. Descending Sorting By RollNo." << endl;
-        cout << "6. " << endl;
+        cout << "6. Get Marks Of particular Student." << endl;
         cout << "7. " << endl;
         cout << "Enter choice - "<<endl;
         cin >> choice;
@@ -52,7 +52,12 @@ int main(){
              std->sortRecords();
              break;
         case 6:
-            cout << "Wrong choice..." << endl;
+            cout << "Enter the Roll No Of Students ::" << endl;
+            {
+                int rollno;
+                cin >> rollno;
+                std->findMarks(rollno);
+            }
            break; 
         case 7:
              cout << "Wrong choice..." << endl;

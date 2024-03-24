@@ -12,7 +12,8 @@ int main(){
      int day, month, year;
 
         cout << "Enter name: ";
-        cin >> name;
+        getchar();
+        getline(cin,name);
         cout << "Enter address: ";
         cin >> address;
         cout << "Enter The birthdate: "<<endl;

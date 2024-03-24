@@ -24,6 +24,7 @@ class StudentFunctions
     void displayStudent();
 
     void searchRecords(int rollNo);
+    void findMarks(int rollNo);
 
     void sortRecords();
 };

@@ -49,14 +49,33 @@ void StudentFunctions::searchRecords(int rollNo){
             if(student[i]->getRollNumber()==rollNo){
                cout<<endl;
                student[i]->printRecord();
-               cout<<endl; 
-              }
-              return ; 
+               cout<<endl;
+               return ; 
+              } 
         }
         cout<<"Student is not Found!!!"<<endl;
               cout<<"Enter valid RollNo!!"<<endl;
               cout<<endl;
      }
+void StudentFunctions::findMarks(int rollNo){
+        for(int i=0; i<index;i++){
+            if(student[i]->getRollNumber()==rollNo){
+               cout<<endl;
+               int *marks;
+              marks = student[i]->getMarks();
+              for(int j=0;j<3;j++)
+                cout<<" Marks in "<< j+1 << "subject is :: " << marks[j]<<" "<<endl;
+               cout<<endl;
+
+               delete marks;
+               marks=NULL;
+               return ; 
+              }
+        }
+        cout<<"Student is not Found!!!"<<endl;
+              cout<<"Enter valid RollNo!!"<<endl;
+              cout<<endl;
+     }     
 
 void StudentFunctions:: sortRecords(){
        //insertion sort
