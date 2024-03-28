@@ -37,17 +37,6 @@ class Product {
        cout<<"Product Name: "<<name<<endl;
        cout<<"Product Price: "<<price<<endl;
     }
-    // void acceptProduct(){
-        // int id;
-        // string name;
-        // double price;
-        // cout<<"Enter Product Id: ";
-        // cin>>id;
-        // cout<<"Enter Product Name: ";
-        // cin>>name;
-        // cout<<"Enter Product Price: ";
-        // cin>>price;
-    // }
 };
 
 class Person{
@@ -165,7 +154,6 @@ int  main(){
                     cout<<"Enter Product Price: ";
                     cin>>price;
                 product[indexForProduct] = new Product(id,name,price);
-                // product[indexForProduct]->acceptProduct();
                 indexForProduct++;
               }
              else{
