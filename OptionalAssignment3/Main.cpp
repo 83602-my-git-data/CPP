@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 template <class T>
+
+
+
+
 class Stack
 {
     private:
@@ -19,7 +23,7 @@ class Stack
       ~Stack(){
         delete []stack;
         stack=NULL;
-      }//       entri 
+      }
       void print(){
         if(!isEmpty()){
          for(int i=top;i>=0;i--){
@@ -101,7 +105,7 @@ int main(){
         case 1:
               cout<<"Enter The Size of Stack:: "<<endl;
               cin>>size;
-              stack = new Stack(size);
+              stack = new Stack<int>(size);
             break;
         case 2:
               cout<<"Enter The Value to be Entered in Stack:: "<<endl;

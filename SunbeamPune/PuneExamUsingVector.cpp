@@ -66,7 +66,7 @@ class Customer : public Person{
         this->mobile = mobile;
     }
     ~Customer(){
-        for (int i = 0; i < product.size(); i++)
+        for (int i = 0; i < product.size(); i++) 
             {
                         product.erase(product.begin() + i);
             }
@@ -101,7 +101,7 @@ int  main(){
     vector<Product *> product;
     vector<Customer *> customer;
     int index=0;
-    int id=0;
+    int id;
     int choice=0;
     string name;
     string mobile;
@@ -120,31 +120,29 @@ int  main(){
         cin>>choice;
         switch(choice){
             case 0:{
-                for(int i=0;i<customer.size();i++)
-                  {
-                        customer.erase(customer.begin() + i);
-                 }
+                 for (int i = 0; i < product.size(); i++)
+                        delete product[i];
             
-                for(int i=0;i<product.size();i++)
-                {
-                    product.erase(product.begin() + i);
-                }  
+                 for (int i = 0; i < customer.size(); i++)
+                        delete customer[i]; 
 
                 cout<<"Thank you :-)!!!!!!"<<endl;
             }
                 break;
-            case 1:
+            case 1://Add products 
             cout<<"======================================================="<<endl;
                     cout<<"Enter Product Id: ";
                     cin>>id;
                     cout<<"Enter Product Name: ";
                     getchar();
+                    //cin>>name;
                     getline(cin, name);
                     cout<<"Enter Product Price: ";
                     cin>>price;
-                        product.push_back(new Product(id,name,price));
+                      // Product *ptr = new Product(id, name ,price);
+                        product.push_back(new Product(id, name ,price));
                 break;
-            case 2:
+            case 2://add customers 
             cout<<"======================================================="<<endl;
                     cout<<"Enter the Name ::"<<endl;
                     getchar();
