@@ -121,20 +121,6 @@ void saveEmployees(vector<Student *> &students)
     cout << "All Student are saved in file" << endl;
     cout << "*******************************" << endl;
 }
-void saveEmployees(vector<Employee *> &empList)
-{
-    ofstream fout("employee.txt");
-    for (int i = 0; i < empList.size(); i++)
-    {
-        fout << empList[i]->getEmpid() << ",";
-        fout << empList[i]->getName() << ",";
-        fout << empList[i]->getSalary() << endl;
-    }
-    fout.close();
-    cout << "*******************************" << endl;
-    cout << "All employees are saved in file" << endl;
-    cout << "*******************************" << endl;
-}
 
 void loadStudent(vector<Student *> &studentList){
     ifstream fin("student.txt");
@@ -151,7 +137,20 @@ void loadStudent(vector<Student *> &studentList){
     cout << "All students are loaded from file" << endl;
     cout << "*******************************" << endl;
 }
-
+void saveEmployees(vector<Employee *> &empList)
+{
+    ofstream fout("employee.txt");
+    for (int i = 0; i < empList.size(); i++)
+    {
+        fout << empList[i]->getEmpid() << ",";
+        fout << empList[i]->getName() << ",";
+        fout << empList[i]->getSalary() << endl;
+    }
+    fout.close();
+    cout << "*******************************" << endl;
+    cout << "All employees are saved in file" << endl;
+    cout << "*******************************" << endl;
+}
 void loadEmployees(vector<Employee *> &empList)
 {
     ifstream fin("employee.txt");

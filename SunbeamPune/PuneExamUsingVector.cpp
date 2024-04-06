@@ -1,5 +1,7 @@
  #include <iostream>
  #include <vector>
+ #include <fstream>
+#include <sstream>
 
  using namespace std;
 class Product {
@@ -97,16 +99,59 @@ class Customer : public Person{
     }
 };
 
+void saveCustomer(vector<Customer *> &customerlist)
+{
+    ofstream outfile;
+    outfile.open("Customers.txt");
+    for (int i = 0; i< customerlist.size(); i++)
+    {
+        outfile << customerlist[i]->getName() << "," << customerlist[i]->getMobile() << ",";
+        
+        for(int j=0; j<customerlist[i]->getProduct().size();j++){
+            outfile << customerlist[i]->getProduct()[j]->getId() << "," << customerlist[i]->getProduct()[j]->getName() << "," << customerlist[i]->getProduct()[j]->getPrice()<<endl;
+        }
+    }
+    outfile.close();
+    cout << "*******************************" << endl;
+    cout << "All Customers are saved in file" << endl;
+    cout << "*******************************" << endl;
+}
+
+void loadCustomer(vector<Customer *> &customerList)
+{
+    ifstream fin("Customers.txt");
+    string data;
+    int index = 0;
+    while (getline(fin, data))
+    {
+        stringstream obj(data);
+        string id,name,mobile , pname, price;
+        getline(obj, name, ',');
+        getline(obj, mobile, ',');
+        getline(obj, id, ',');
+        getline(obj, pname, ',');
+        getline(obj, price, ',');
+
+        customerList.push_back(new Customer(name,mobile));
+        customerList[index]->AddProduct(new Product(stoi(id),pname,stod(price)));
+        index++;
+    }
+    fin.close();
+    cout << "*******************************" << endl;
+    cout << "All  are loaded from file" << endl;
+    cout << "*******************************" << endl;
+}
+
 int  main(){
     vector<Product *> product;
     vector<Customer *> customer;
-    int index=0;
+    int index=-1;
     int id;
     int choice=0;
     string name;
     string mobile;
     double price;
-     
+      loadCustomer(customer);
      do{
         cout<<"0. Exits"<<endl;
         cout<<"1. Add Product"<<endl;
@@ -159,11 +204,11 @@ int  main(){
                     getline(cin,name);
                     for(int i=0; i<customer.size();i++){
                         if(customer[i]->getName() == name){
-                            index = i+1;    
+                            index = i;    
                             break;
                         }
                     }
-                    if(index==0){
+                    if(index==-1){
                         cout<<"Customer Not Found"<<endl;
                         continue;
                       }
@@ -176,7 +221,7 @@ int  main(){
                      cin>>id;
                      for(int i=0; i<product.size();i++){
                          if(product[i]->getId() == id){
-                            customer[index-1]->AddProduct(product[i]);
+                            customer[index]->AddProduct(product[i]);
                             cout<<"Product is Added..."<<endl;
                             break;
                           }
@@ -191,7 +236,7 @@ int  main(){
             cout<<"Product Details :: "<<endl;
              for(int i=0;i<product.size();i++)
                 product[i]->display();
-             cout<<"=========================customer =============================="<<endl;
+             cout<<"========================= customer =============================="<<endl;
              for(int i=0;i<customer.size();i++)
                 customer[i]->print();   
             cout<<"======================================================="<<endl;    
@@ -225,6 +270,6 @@ int  main(){
                 break;
         } 
      }while(choice!=0);
-
+    saveCustomer(customer);
  return 0;
 };
